@@ -1,57 +1,29 @@
 
 <template>
   <div id="app">
-    <button @click="changeMsg()">change</button>
-    <span id="container">
-      {{message}}
-    </span><br/>
-    <input type="text" v-model="message"></input>
-    <table>
-      <thead>
-      <tr>
-        <th>nimei</th>
-        <th>nimei</th>
-        <th>nimei</th>
-      </tr>
-      </thead>
-      <tbody>
-        
-          <tr v-for="value in message2">
-            <td>{{value.name}}</td>
-            <td>{{value.age}}</td>
-            <td>{{value.sex}}</td>
-          </tr>
-      </tbody>
-      
-    </table>
-    <a :style="[a,b]">连接</a>
-    <el-button :type="status">成功按钮</el-button>
-    <el-container>
-      <el-header>
-        <HeaderLy></HeaderLy>
-      </el-header>
-      <el-container>
-        <router-view/>
-        <transtition/>
-      </el-container>
-      <el-footer>
-        <FooterLy></FooterLy>
-      </el-footer>
-    </el-container>
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <router-view/> -->
+    <input type="checkbox" id="checkbox" value="checkbox" v-model="checked">
+    <label for="checkbox">{{checked}}</label>
+    <p>sssss</p>
+    <input type="checkbox" id="runnob" value="runnob" v-model="checkedNames">
+    <label for="runnob">Runnob</label>
+    <input type="checkbox" id="google" value="google" v-model="checkedNames">
+    <label for="google">Runnob</label>
+    <input type="checkbox" id="taobao" value="taobao" v-model="checkedNames">
+    <label for="taobao">Runnob</label>
   </div>
 </template>
 
 <script>
-import HeaderLy from '@components/header'
-import FooterLy from '@components/footer'
+import HeaderLy from './components/header'
+import FooterLy from './components/footer'
+import Aside from './components/aside'
 
 export default {
   name: 'App',
   components:{
     HeaderLy,
-    FooterLy
+    FooterLy,
+    Aside
   },
   data () {
     return {
@@ -60,7 +32,10 @@ export default {
       link2: 'http://www.baidu.com',
       a:{'color':'red'},
       b:{'background-color':'blue'},
-      status:"danger"
+      status:"danger",
+      parentMsg: 'from parent msg',
+      checked: false,
+      checkedNames: []
     }  
   },
   created () {
