@@ -1,15 +1,20 @@
 
 <template>
   <div id="app">
-    <input type="checkbox" id="checkbox" value="checkbox" v-model="checked">
-    <label for="checkbox">{{checked}}</label>
-    <p>sssss</p>
-    <input type="checkbox" id="runnob" value="runnob" v-model="checkedNames">
-    <label for="runnob">Runnob</label>
-    <input type="checkbox" id="google" value="google" v-model="checkedNames">
-    <label for="google">Runnob</label>
-    <input type="checkbox" id="taobao" value="taobao" v-model="checkedNames">
-    <label for="taobao">Runnob</label>
+    <el-container>
+      <el-header>
+        <HeaderLy/>
+      </el-header>
+      <el-container>
+        <el-aside width="200px">
+          <Aside/>
+        </el-aside>
+       <el-main>
+         
+         <router-view></router-view>
+       </el-main>
+      </el-container>
+    </el-container>
   </div>
 </template>
 
@@ -17,13 +22,15 @@
 import HeaderLy from './components/header'
 import FooterLy from './components/footer'
 import Aside from './components/aside'
+import Table from './components/table'
 
 export default {
   name: 'App',
   components:{
     HeaderLy,
     FooterLy,
-    Aside
+    Aside,
+    Table
   },
   data () {
     return {
@@ -38,49 +45,7 @@ export default {
       checkedNames: []
     }  
   },
-  created () {
-    console.group("%c%s", "color:red", 'created');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-  },
-  beforeMount() {
-    console.group("%c%s", "color:red", 'beforeMount');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-  },
-  mounted() {
-    console.group("%c%s", "color:red", 'mount');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-  },
-  beforeUpdate() {
-    console.group("%c%s", "color:red", 'beforeUpdate');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-    console.log("%c%s", "color:red", document.getElementById('container').innerHTML);
-  },
-  updated() {
-    console.group("%c%s", "color:red", 'updated');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-    console.log("%c%s", "color:red", document.getElementById('container').innerHTML);
-  },
-  destroyed() {
-    console.group("%c%s", "color:red", 'destroyed');
-    console.log("%c%s", "color:red", this.$el);
-    console.log("%c%s", "color:red", this.$data);
-    console.log("%c%s", "color:red", this.message);
-  },
-  methods: {
-    changeMsg() {
-      this.message='abc'
-    }
-  }
+  
 }
 </script>
 
@@ -92,5 +57,38 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.el-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.el-header{
+  padding: 0;
+  z-index: 1000
+}
+
+.el-header .fr{
+  float: right;
+}
+
+.el-header, .el-menu{
+  border-botton: none;
+}
+
+.el-aside, .el-main{
+  padding-top: 60px;
+}
+
+.el-aside{
+  background: #545c64;
+  height:100vh;
+}
+
+.el-aside .el-menu{
+  border-botton: none;
 }
 </style>
