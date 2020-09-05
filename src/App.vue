@@ -1,21 +1,14 @@
 
 <template>
-  <div id="app">
-    <el-container>
-      <el-header>
-        <HeaderLy/>
-      </el-header>
-      <el-container>
-        <el-aside width="200px">
-          <Aside/>
-        </el-aside>
-       <el-main>
-         
-         <router-view></router-view>
-       </el-main>
-      </el-container>
-    </el-container>
-  </div>
+  <el-container>
+  <el-header class="header" height="100px">
+    <h3>我的网站</h3>
+    <p>登录功能</p>
+  </el-header>
+  <el-main>
+    <router-view></router-view>
+  </el-main>
+</el-container>
 </template>
 
 <script>
@@ -57,6 +50,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.header{
+  background-color:#409EFF;
+  color: white;
 }
 .el-container{
   position: absolute;

@@ -100,3 +100,23 @@ position: absolute;
   top: 0px;
   left: 0;
   button: 0
+
+
+<el-container>
+      <el-header>
+        <HeaderLy/>
+      </el-header>
+      <el-container>
+        <el-aside width="200px">
+          <Aside/>
+        </el-aside>
+       <el-main>
+         
+         <router-view></router-view>
+       </el-main>
+      </el-container>
+    </el-container>
+if(this.user.name ==='admin' && this.user.pass ==='123'){
+
+
+import { use } from 'vue/types/umd'
